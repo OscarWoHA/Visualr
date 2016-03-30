@@ -1,0 +1,5 @@
+name: Visualr
+main: no.oscen.visualr.Visualr
+version: 0.1 Alpha
+author: OscarWoHA
+depend: [Vault]
