@@ -19,17 +19,27 @@ public class Visualr extends JavaPlugin {
 	
 	public void onEnable() {
 		_l.info("Setting up Vault!");
-		
 		if(!this.setupVault()) {
 			_l.severe("Vault could not be set up! Disabling plugin..");
 			this.getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
-		
 		_l.info("Vault setup complete.");
 		
-		_l.info("Initializing values onto online players.");
 		
+		_l.info("Trying to save default config.");
+		this.saveDefaultConfig();
+		
+		
+		_l.info("Configuration values loading.");
+		new ConfVal(this.getConfig());
+		
+		
+		_l.info("Registering listener.");
+		this.getServer().getPluginManager().registerEvents(new Listnr(), this);
+		
+		
+		_l.info("Initializing values onto online players.");
 		for(Player p : this.getServer().getOnlinePlayers()) {
 			this.initPlayer(p);	
 		}
