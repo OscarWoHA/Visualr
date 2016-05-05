@@ -1,13 +1,20 @@
-#True or false here to enable or disable different changes
 conf:
-  changedisplayname: true
-  changetabname: true
-  changechat: true
-  changequit: true
-  changejoin: true
+  enable:
+    debug: false
+  change:
+    displayname: true
+    tabname: true
+    chat: true
+    quit: true
+    join: true
+  disable:
+    join: false
+    quit: false
+    chat: false
+    
+formats:
+  chat: "&a%PLAYER%&7: %MESSAGE%"
 
-#Message-changes will be done under
-chat:
-  format: "&a%PLAYER%&7: %MESSAGE%"
+messages:
   quitmsg: "&c- &7%PLAYER% &7left the game"
   joinmsg: "&a+ &7%PLAYER% &7joined the game"

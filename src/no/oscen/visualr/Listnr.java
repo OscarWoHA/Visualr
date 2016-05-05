@@ -12,16 +12,34 @@ public class Listnr implements Listener {
 	
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e) {
+		if(ConfVal.DISABLEQUIT) {
+			Util.DEBUG("Quit disabled");
+			e.setQuitMessage(null);
+			return;
+		}
+		
 		String format = ConfVal.QUITMSG;
 		Player p = e.getPlayer();
+
+		Util.DEBUG("Quit message enabled");
+		Util.DEBUG(format);
 		
 		e.setQuitMessage(this.formatjq(format, p));
 	}
 
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
+		if(ConfVal.DISABLEJOIN) {
+			Util.DEBUG("Join disabled");
+			e.setJoinMessage(null);
+			return;
+		}
+		
 		String format = ConfVal.JOINMSG;
 		Player p = e.getPlayer();
+		
+		Util.DEBUG("Join message enabled");
+		Util.DEBUG(format);
 		
 		e.setJoinMessage(this.formatjq(format, p));
 	}
@@ -29,7 +47,14 @@ public class Listnr implements Listener {
 	
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent e) {
+		if(ConfVal.DISABLECHAT) {
+			Util.DEBUG("Chat disabled");
+			e.setCancelled(true);
+			return;
+		}
+		
 		if(!ConfVal.CHANGECHAT) {
+			Util.DEBUG("Chat change disabled");
 			return;
 		}
 		
@@ -37,6 +62,9 @@ public class Listnr implements Listener {
 		
 		String chform = ConfVal.CHATFORMAT;
 		chform = this.formatchat(chform, p, e.getMessage());
+		
+		Util.DEBUG("Chat format changed");
+		Util.DEBUG(chform);
 		
 		e.setFormat(chform);
 	}
