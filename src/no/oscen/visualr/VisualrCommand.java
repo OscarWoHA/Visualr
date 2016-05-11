@@ -1,8 +1,10 @@
 package no.oscen.visualr;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class VisualrCommand implements CommandExecutor {
 
@@ -23,6 +25,11 @@ public class VisualrCommand implements CommandExecutor {
 			case "reload":
 				this.confReload();
 				sender.sendMessage(Util.PREFIX + "Config reloaded.");
+				
+				for(Player p : Bukkit.getOnlinePlayers()) {
+					Visualr.initPlayer(p);
+				}
+				sender.sendMessage(Util.PREFIX + "Prefixes and suffixes reloaded.");
 				return true;
 			default:
 				this.help(sender);

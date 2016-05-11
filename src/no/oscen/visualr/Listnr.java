@@ -29,6 +29,8 @@ public class Listnr implements Listener {
 
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
+		Visualr.initPlayer(e.getPlayer());
+		
 		if(ConfVal.DISABLEJOIN) {
 			Util.DEBUG("Join disabled");
 			e.setJoinMessage(null);
