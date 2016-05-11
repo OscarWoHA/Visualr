@@ -9,13 +9,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
+import no.oscen.visualr.listeners.Listnr;
+import no.oscen.visualr.listeners.ListnrPEX;
+import no.oscen.visualr.listeners.commands.VisualrCommand;
+import no.oscen.visualr.utils.ConfVal;
 
 public class Visualr extends JavaPlugin {
 	public Logger _l = this.getLogger();    
-	private static Permission permission = null;
-	private static Chat chat = null;
-
-	public void onEnable() {	
+	public static Permission permission = null;
+	public static Chat chat = null;
+	
+	public void onEnable() {		
 		_l.info("Setting up Vault!");
 		this.setupVault();
 		_l.info("Vault setup complete.");
@@ -86,5 +90,4 @@ public class Visualr extends JavaPlugin {
 
 		return (chat != null);
 	}
-
 }

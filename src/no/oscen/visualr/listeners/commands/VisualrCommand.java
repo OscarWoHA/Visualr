@@ -1,10 +1,14 @@
-package no.oscen.visualr;
+package no.oscen.visualr.listeners.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import no.oscen.visualr.Visualr;
+import no.oscen.visualr.utils.ConfVal;
+import no.oscen.visualr.utils.Util;
 
 public class VisualrCommand implements CommandExecutor {
 

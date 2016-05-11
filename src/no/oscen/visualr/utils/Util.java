@@ -1,4 +1,4 @@
-package no.oscen.visualr;
+package no.oscen.visualr.utils;
 
 import org.bukkit.Bukkit;
 

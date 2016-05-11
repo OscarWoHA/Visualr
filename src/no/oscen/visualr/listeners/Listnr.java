@@ -1,4 +1,4 @@
-package no.oscen.visualr;
+package no.oscen.visualr.listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -7,6 +7,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import no.oscen.visualr.Visualr;
+import no.oscen.visualr.utils.ConfVal;
+import no.oscen.visualr.utils.Util;
 
 public class Listnr implements Listener {
 	
