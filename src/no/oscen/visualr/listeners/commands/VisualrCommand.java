@@ -15,7 +15,7 @@ public class VisualrCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String lbl, String[] args) {
 		if(!sender.hasPermission("visualr.commands.visualr")) {
-			sender.sendMessage(Util.PREFIX + "§cYou don't have permission to use this command.");
+			sender.sendMessage(Util.PREFIX + "Â§cYou don't have permission to use this command.");
 			return true;
 		}
 		
@@ -52,8 +52,8 @@ public class VisualrCommand implements CommandExecutor {
 	
 	public void help(CommandSender sender) {
 		sender.sendMessage(Util.PREFIX + "Help - Page 1 of 1");
-		sender.sendMessage(Util.PREFIX + "/visualr §6help <page> §7- Displays this list");
-		sender.sendMessage(Util.PREFIX + "/visualr §6reload §7- Reloads all config values");
+		sender.sendMessage(Util.PREFIX + "/visualr Â§6help <page> Â§7- Displays this list");
+		sender.sendMessage(Util.PREFIX + "/visualr Â§6reload Â§7- Reloads all config values");
 	}
 
 }

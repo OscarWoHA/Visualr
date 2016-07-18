@@ -6,7 +6,7 @@ public class Util {
 	public static String PREFIX = "";
 
 	static {
-		PREFIX = "ง6[Visualr]ง7 ";
+		PREFIX = "ยง6[Visualr]ยง7 ";
 	}
 	
 	public enum PrintType {
@@ -20,7 +20,7 @@ public class Util {
 			return;
 		}
 		
-		message = PREFIX + "ง4[DEBUG] ง7"+ message;
+		message = PREFIX + "ยง4[DEBUG] ยง7"+ message;
 		
 		switch(type) {
 		case CONSOLE:
