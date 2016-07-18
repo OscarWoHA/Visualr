@@ -13,35 +13,37 @@ import no.oscen.visualr.listeners.Listnr;
 import no.oscen.visualr.listeners.ListnrPEX;
 import no.oscen.visualr.listeners.commands.VisualrCommand;
 import no.oscen.visualr.utils.ConfVal;
+import no.oscen.visualr.utils.Util;
+import no.oscen.visualr.utils.Util.PrintType;
 
 public class Visualr extends JavaPlugin {
 	public Logger _l = this.getLogger();    
 	public static Permission permission = null;
 	public static Chat chat = null;
 	
-	public void onEnable() {		
-		_l.info("Setting up Vault!");
+	public void onEnable() {
+		Util.DEBUG("Setting up Vault!", PrintType.CONSOLE);
 		this.setupVault();
-		_l.info("Vault setup complete.");
+		Util.DEBUG("Vault setup complete.", PrintType.CONSOLE);
 
-		_l.info("Trying to save default config.");
+		Util.DEBUG("Trying to save default config.", PrintType.CONSOLE);
 		this.saveDefaultConfig();
-
-		_l.info("Configuration values loading.");
+		
+		Util.DEBUG("Configuration values loading.", PrintType.CONSOLE);
 		new ConfVal(this.getConfig());
 
-		_l.info("Registering listener.");
+		Util.DEBUG("Registering listener.", PrintType.CONSOLE);
 		if (getServer().getPluginManager().getPlugin("PermissionsEx") != null) {
-			_l.info("Found PEX, using custom listener");
+			Util.DEBUG("Found PEX, using custom listener", PrintType.BOTH);
 			getServer().getPluginManager().registerEvents(new ListnrPEX(), this);
 		}
 		
 		getServer().getPluginManager().registerEvents(new Listnr(), this);
 		
-		_l.info("Registering commands.");
+		Util.DEBUG("Registering commands.", PrintType.CONSOLE);
 		this.getCommand("visualr").setExecutor(new VisualrCommand());
 
-		_l.info("Initializing values onto online players.");
+		Util.DEBUG("Initializing values onto online players.", PrintType.CONSOLE);
 		for(Player p : this.getServer().getOnlinePlayers()) {
 			initPlayer(p);	
 		}

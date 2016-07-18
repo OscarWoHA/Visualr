@@ -1,6 +1,6 @@
 name: Visualr
 main: no.oscen.visualr.Visualr
-version: 0.2.0 Beta
+version: 0.2.2 Beta
 author: OscarWoHA
 depend: [Vault]
 softdepend: [PermissionsEx]

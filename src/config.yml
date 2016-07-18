@@ -1,6 +1,5 @@
 conf:
-  enable:
-    debug: false
+  debug: false
   change:
     displayname: true
     tabname: true

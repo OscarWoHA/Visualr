@@ -3,6 +3,8 @@ package no.oscen.visualr.utils;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import no.oscen.visualr.utils.Util.PrintType;
+
 public class ConfVal {
 	//ENABLE (boolean)
 	public static boolean DEBUGENABLE = true;
@@ -27,13 +29,13 @@ public class ConfVal {
 	public static String JOINMSG = "";
 
 	public ConfVal(FileConfiguration conf) {
-		ConfigurationSection enable = conf.getConfigurationSection("conf.enable");
+		ConfigurationSection enable = conf.getConfigurationSection("conf");
 		DEBUGENABLE = enable.getBoolean("debug");
 
 		ConfigurationSection change = conf.getConfigurationSection("conf.change");
 
 		for(String keys : change.getKeys(true)) {
-			Util.DEBUG(Boolean.toString(change.getBoolean(keys)));
+			Util.DEBUG(Boolean.toString(change.getBoolean(keys)), PrintType.BOTH);
 		}
 
 		CHANGEDISPLAYNAME = change.getBoolean("displayname");
@@ -45,7 +47,7 @@ public class ConfVal {
 		ConfigurationSection disable = conf.getConfigurationSection("conf.disable");
 
 		for(String keys : disable.getKeys(true)) {
-			Util.DEBUG(Boolean.toString(disable.getBoolean(keys)));
+			Util.DEBUG(Boolean.toString(disable.getBoolean(keys)), PrintType.BOTH);
 		}
 
 		DISABLEJOIN = disable.getBoolean("join");
@@ -55,7 +57,7 @@ public class ConfVal {
 		ConfigurationSection formats = conf.getConfigurationSection("formats");
 
 		for(String keys : formats.getKeys(true)) {
-			Util.DEBUG(formats.getString(keys));
+			Util.DEBUG(formats.getString(keys), PrintType.BOTH);
 		}
 
 		CHATFORMAT = formats.getString("chat");
@@ -64,7 +66,7 @@ public class ConfVal {
 		ConfigurationSection messages = conf.getConfigurationSection("messages");
 
 		for(String keys : messages.getKeys(true)) {
-			Util.DEBUG(messages.getString(keys));
+			Util.DEBUG(messages.getString(keys), PrintType.BOTH);
 		}
 
 		QUITMSG = messages.getString("quitmsg");

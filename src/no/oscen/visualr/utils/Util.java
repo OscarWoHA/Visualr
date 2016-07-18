@@ -9,14 +9,30 @@ public class Util {
 		PREFIX = "§6[Visualr]§7 ";
 	}
 	
-	public static void DEBUG(String message) {
+	public enum PrintType {
+		CONSOLE,
+		INGAME,
+		BOTH;
+	}
+	
+	public static void DEBUG(String message, PrintType type) {
 		if(!ConfVal.DEBUGENABLE) {
 			return;
 		}
 		
 		message = PREFIX + "§4[DEBUG] §7"+ message;
 		
-		System.out.println(message);
-		Bukkit.broadcastMessage(message);
+		switch(type) {
+		case CONSOLE:
+			System.out.println(message);
+			break;
+		case INGAME:
+			Bukkit.broadcastMessage(message);
+			break;
+		case BOTH:
+			System.out.println(message);
+			Bukkit.broadcastMessage(message);
+			break;
+		}
 	}
 }
