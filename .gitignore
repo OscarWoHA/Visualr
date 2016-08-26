@@ -1,7 +1,5 @@
-/bin/
-
-
-.classpath
-.settings
-.project
-.checkstyle
+bin/
+.classpath/
+.settings/
+.project/
+.checkstyle/
